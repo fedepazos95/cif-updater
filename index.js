@@ -19,19 +19,19 @@ express()
     let result = ''
     const times = process.env.TIMES || 5
     for (i = 0; i < times; i++) {
-      result += i + ' ' 
+      result += i + ' '
     }
     res.send(result)
   })
   .get('/db', async (req, res) => {
     try {
       const client = await pool.connect()
-      const result = await client.query('SELECT * FROM test_table')
-      res.render('pages/db', result)
-      client.release()
+      const result = await client.query('SELECT * FROM test_table');
+      res.render('pages/db', result);
+      client.release();
     } catch (err) {
-      console.log(err)
-      res.send('Error ' + err)
+      console.error(err);
+      res.send("Error " + err);
     }
   })
-  .listen(PORT, () => console.log(`Listening on ${ PORT }`))
+  .listen(PORT, () => console.log(`Listening on ${PORT}`))
