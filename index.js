@@ -13,7 +13,7 @@ express()
   .use(express.static(path.join(__dirname, 'public')))
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
-  .get('/', (req, res) => res.render('pages/index'))
+  .get('/', (req, res) => res.render('pages/db'))
   .get('/cool', (req, res) => res.send(cool()))
   .get('/times', (req, res) => {
     let result = ''
