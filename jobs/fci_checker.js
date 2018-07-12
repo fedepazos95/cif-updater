@@ -24,11 +24,11 @@ const checkFci = (fci) => {
             name: res.data[0].name,
             var: res.data[0].data[res.data[0].data.length - 1]
         }
-        console.log(fci);
+        console.log('fci', fci);
         try {
             const client = await pool.connect()
             const result = await client.query('SELECT * FROM test_table');
-            console.log(result.rows);
+            console.log('rows', result.rows);
             client.release();
           } catch (err) {
             console.error(err);
