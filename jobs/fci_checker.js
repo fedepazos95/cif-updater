@@ -26,7 +26,7 @@ const checkFci = (fci) => {
         }
         try {
             const client = await pool.connect()
-            const result = await client.query(`UPDATE fcis_table SET valor = ${fci.var.valor}, fecha = ${fci.var.fecha}, variacion = ${fci.var.variacion} WHERE fci = ${fci.name}`);
+            const result = await client.query(`UPDATE fcis_table SET valor = ${fci.var.valor}, fecha = ${fci.var.fecha}, variacion = ${fci.var.variacion} WHERE fci = '${fci.name}'`);
             client.release();
           } catch (err) {
             console.error(err);
