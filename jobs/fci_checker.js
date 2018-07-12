@@ -24,11 +24,9 @@ const checkFci = (fci) => {
             name: res.data[0].name,
             var: res.data[0].data[res.data[0].data.length - 1]
         }
-        console.log('fci', fci);
         try {
             const client = await pool.connect()
-            const result = await client.query('SELECT * FROM test_table');
-            console.log('rows', result.rows);
+            const result = await client.query(`UPDATE fcis_table SET valor = ${fci.var.valor}, fecha = ${fci.var.fecha}, variacion = ${fci.var.variacion} WHERE fci = ${fci.name}`);
             client.release();
           } catch (err) {
             console.error(err);
