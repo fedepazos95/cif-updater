@@ -35,4 +35,15 @@ express()
       res.send("Error " + err);
     }
   })
+  .get('/fci', async (req, res) => {
+    try {
+      const client = await pool.connect()
+      const result = await client.query('SELECT * FROM fcis_table');
+      res.render('pages/fci', result);
+      client.release();
+    } catch (err) {
+      console.error(err);
+      res.send("Error " + err);
+    }
+  })
   .listen(PORT, () => console.log(`Listening on ${PORT}`))
