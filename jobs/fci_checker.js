@@ -8,7 +8,6 @@ const pool = new Pool({
   ssl: true
 });
 
-console.log(process.env);
 const checkFci = (fci) => {
     axios
     .post(url, queryString.stringify({

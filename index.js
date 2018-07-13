@@ -1,14 +1,11 @@
-const express = require('express')
-const path = require('path')
+const express = require('express');
+const path = require('path');
 const { Pool } = require('pg');
-const PORT = process.env.PORT || 5000
+const keys = require('./config/keys');
+const PORT = process.env.PORT || 5000;
 
-const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
-  ssl: true
-})
-
-const app = express()
+const pool = new Pool({ connectionString, ssl } = keys);
+const app = express();
 
 express()
   .use(express.static(path.join(__dirname, 'public')))
