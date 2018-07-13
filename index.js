@@ -29,7 +29,7 @@ app.get('/fci', async (req, res) => {
 app.get('/accounts', async (req, res) => {
   try {
     const result = await Wallet.listAccounts(keys.walletToken, keys.user);
-    res.render('pages/accounts', result);
+    res.render('pages/accounts', { accounts: result});
   } catch (err) {
     console.error(err);
     res.send('Error', err);
