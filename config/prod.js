@@ -2,5 +2,7 @@ module.exports = {
     walletToken: process.env.WALLET_TOKEN,
     connectionString: process.env.DATABASE_URL,
     ssl: true,
-    user: process.env.USER
+    user: process.env.USER,
+    icbcUrl: process.env.ICBC_URL,
+    budgetBakersUrl: process.env.BUDGET_BAKERS_URL
 }
