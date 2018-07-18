@@ -4,6 +4,7 @@ const { Pool } = require('pg');
 const keys = require('./config/keys');
 const Wallet = require('./Wallet');
 const { getFci } = require('./FcisUtils');
+const fcis = require('./config/fcis');
 
 
 const pool = new Pool({ connectionString, ssl } = keys);
@@ -47,7 +48,7 @@ app.get('/account', async (req, res) => {
 });
 app.get('/getFci', async (req, res) => {
   try {
-    const result = await getFci();
+    const result = await getFci(fcis.option.ALPHA_MEGA);
     console.log('result', result);
     res.json(result);
   } catch (err) {
