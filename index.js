@@ -37,7 +37,10 @@ app.get('/accounts', async (req, res) => {
     _.each(accounts, ac => {
       const o = option[ac.name.replace(/ /g,"_")];
       if (o) {
-        getLastVariation(o).then(r => console.log(ac.name, r));
+        getLastVariation(o).then(async (r) => {
+          const fciDb = await getFciFromDatabase(ac.name);
+          console.log('fci', fciDb);
+        });
       }
     });
     res.render('pages/accounts', { accounts });
