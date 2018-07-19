@@ -28,7 +28,7 @@ module.exports = {
         try {
             const client = await pool.connect();
             const result = await client.query(`SELECT * FROM fcis_table WHERE fci='${fci}'`);
-            console.log('fcis', result);
+            console.log('fcis', result.rows);
             res.render('pages/fci', result);
             client.release();
         } catch (err) {
