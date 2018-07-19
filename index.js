@@ -4,7 +4,7 @@ const { Pool } = require('pg');
 const _ = require('underscore');
 const keys = require('./config/keys');
 const Wallet = require('./Wallet');
-const { getFci } = require('./FcisUtils');
+const { getLastVariation, getFciFromDatabase } = require('./FcisUtils');
 const { option } = require('./config/fcis');
 const postRecord = require('./utils/postRecord');
 
@@ -37,7 +37,7 @@ app.get('/accounts', async (req, res) => {
     _.each(accounts, ac => {
       const o = option[ac.name.replace(/ /g,"_")];
       if (o) {
-        getFci(o).then(r => console.log(r));
+        getLastVariation(o).then(r => console.log(r));
       }
     });
     res.render('pages/accounts', { accounts });
@@ -55,9 +55,9 @@ app.get('/account', async (req, res) => {
     res.send('Error', err);
   }
 });
-app.get('/getFci', async (req, res) => {
+app.get('/getFciFromDatabase', async (req, res) => {
   try {
-    const result = await getFci(option.ALPHA_MEGA);
+    const result = await getFciFromDatabase(option.ALPHA_RENTA_CAPITAL);
     console.log('result', result);
     res.json(result);
   } catch (err) {
