@@ -39,7 +39,8 @@ app.get('/accounts', async (req, res) => {
       if (o) {
         getLastVariation(o).then(async (r) => {
           const fciDb = await getFciFromDatabase(ac.name);
-          console.log('fci', fciDb);
+          const balance = await Wallet.getAccountBalance(ac.id);
+          console.log(fciDb, balance);
         });
       }
     });
