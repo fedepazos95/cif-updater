@@ -37,7 +37,7 @@ app.get('/accounts', async (req, res) => {
     _.each(accounts, ac => {
       const o = option[ac.name.replace(/ /g,"_")];
       if (o) {
-        getLastVariation(o).then(r => console.log(r));
+        getLastVariation(o).then(r => console.log(ac.name, r));
       }
     });
     res.render('pages/accounts', { accounts });
@@ -57,7 +57,7 @@ app.get('/account', async (req, res) => {
 });
 app.get('/getFciFromDatabase', async (req, res) => {
   try {
-    const result = await getFciFromDatabase(option.ALPHA_RENTA_CAPITAL);
+    const result = await getFciFromDatabase('ALPHA RENTA CAPITAL');
     console.log('result', result);
     res.json(result);
   } catch (err) {
