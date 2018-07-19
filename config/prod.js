@@ -4,5 +4,7 @@ module.exports = {
     ssl: true,
     user: process.env.USER,
     icbcUrl: process.env.ICBC_URL,
-    budgetBakersUrl: process.env.BUDGET_BAKERS_URL
+    budgetBakersUrl: process.env.BUDGET_BAKERS_URL,
+    currencyId: process.env.CURRENCY_ID,
+    categoryId: process.env.CATEGORY_ID
 }
