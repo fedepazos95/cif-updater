@@ -23,6 +23,7 @@ app.get('/fci', async (req, res) => {
   try {
     const client = await pool.connect();
     const result = await client.query('SELECT * FROM fcis_table');
+    console.log('fcis', result);
     res.render('pages/fci', result);
     client.release();
   } catch (err) {
