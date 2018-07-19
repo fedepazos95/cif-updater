@@ -22,7 +22,6 @@ app.get('/', (req, res) => res.render('pages/index'));
 app.get('/fci', async (req, res) => {
   try {
     const client = await pool.connect();
-    await client.query(`DELETE FROM fcis_table WHERE fci = 'ALPHA RENTA CAPITAL'`);
     const result = await client.query('SELECT * FROM fcis_table');
     console.log('fcis', result);
     res.render('pages/fci', result);
