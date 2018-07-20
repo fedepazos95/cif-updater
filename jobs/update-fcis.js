@@ -1,4 +1,5 @@
 const keys = require('../config/keys');
+const { option } = require('../config/fcis');
 const Wallet = require('../Wallet');
 const _ = require('underscore');
 const { getLastVariation, getFciFromDatabase } = require('../FcisUtils');
@@ -13,7 +14,6 @@ const getFormattedValue = (cuotapartes, valor) => {
 const updateFcis = async () => {
     try {
         const accounts = Wallet.listAccounts();
-        console.log('accounts', accounts);
         _.each(accounts, ac => {
             const o = option[ac.name.replace(/ /g, "_")];
             if (o) {
@@ -21,7 +21,6 @@ const updateFcis = async () => {
                     const fciDb = await getFciFromDatabase(ac.name);
                     const balance = await Wallet.getAccountBalance(ac.id);
                     const newValue = getFormattedValue(fciDb.cuotapartes, r.valor);
-                    console.log('last variation', r, 'fci', fciDb, 'balance', balance, 'value', newValue);
                     if (balance !== newValue) {
                         await postRecord(keys.categoryId, ac.id, keys.currencyId, (newValue - balance));
                     }
