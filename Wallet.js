@@ -21,7 +21,7 @@ module.exports = {
     getAccountBalance: async (account) => {
         try {
             const response = await axios.get(`${keys.budgetBakersUrl}/balance/account/${account}`, { headers: { 'X-Token': keys.walletToken, 'X-User': keys.user } });
-            return response.data;
+            return response.data.amount;
         } catch (err) {
             console.error('Error', err);
         }
