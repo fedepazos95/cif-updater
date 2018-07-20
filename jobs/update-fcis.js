@@ -1,8 +1,8 @@
 const keys = require('../config/keys');
 const Wallet = require('../Wallet');
 const _ = require('underscore');
-const { getLastVariation, getFciFromDatabase } = require('./FcisUtils');
-const postRecord = require('./utils/postRecord');
+const { getLastVariation, getFciFromDatabase } = require('../FcisUtils');
+const postRecord = require('../utils/postRecord');
 
 const getFormattedValue = (cuotapartes, valor) => {
     let str = (cuotapartes * valor).toString();
