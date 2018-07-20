@@ -47,8 +47,8 @@ app.get('/accounts', async (req, res) => {
           const fciDb = await getFciFromDatabase(ac.name);
           const balance = await Wallet.getAccountBalance(ac.id);
           const newValue = getFormattedValue(fciDb.cuotapartes, fciDb.valor);
-          if (balance != (newValue + 1)) {
-            console.log('hay que actuallizar');
+          if (balance === newValue) {
+            await postRecord(keys.categoryId, ac.id, keys.currencyId, (newValue - balance));
           }
         });
       }
