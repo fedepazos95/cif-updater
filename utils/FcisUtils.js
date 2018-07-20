@@ -34,13 +34,10 @@ module.exports = {
             console.error('Error', err);
         }
     },
-    updateFci: async (fci) => {
-        console.log('fci', fci);
-        const query = `UPDATE fcis_table SET valor = ${fci.valor}, fecha = ${fci.fecha}, variacion = ${fci.variacion} WHERE fci = '${fci.fci}'`;
-        console.log('query', query);
+    updateFci: async (fci, data) => {
         try {
             const client = await pool.connect();
-            await client.query(query);
+            await client.query(`UPDATE fcis_table SET valor = ${data.valor}, fecha = ${data.fecha}, variacion = ${data.variacion} WHERE fci = '${fci}'`);
             client.release();
         } catch (err) {
             console.error('Error', err);
