@@ -21,10 +21,10 @@ const updateFcis = async () => {
                     const fciDb = await getFciFromDatabase(ac.name);
                     const balance = await Wallet.getAccountBalance(ac.id);
                     const newValue = getFormattedValue(fciDb.cuotapartes, r.valor);
-                    if (balance !== newValue) {
-                        await postRecord(keys.categoryId, ac.id, keys.currencyId, (newValue - balance).toFixed(2));
+                    // if (balance !== newValue) {
+                        // await postRecord(keys.categoryId, ac.id, keys.currencyId, (newValue - balance).toFixed(2));
                         await updateFci(fciDb);
-                    }
+                    // }
                 });
             }
         });
