@@ -12,11 +12,7 @@ const postRecord = require('./utils/postRecord');
 const pool = new Pool({ connectionString, ssl } = keys);
 const app = express();
 
-const getFormattedValue = (cuotapartes, valor) => {
-  let str = (cuotapartes * valor).toString();
-  let i = str.indexOf('.');
-  return parseFloat(str.substring(0, i + 3));
-}
+
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('views', path.join(__dirname, 'views'));
