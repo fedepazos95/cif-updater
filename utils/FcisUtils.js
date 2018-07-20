@@ -2,7 +2,7 @@ const axios = require('axios');
 const _ = require('underscore');
 const queryString = require('query-string');
 const { Pool } = require('pg');
-const keys = require('./config/keys');
+const keys = require('../config/keys');
 const url = 'https://www.fondosalpha.com.ar/alpha/comparador-fondos-p?';
 
 const pool = new Pool({ connectionString, ssl } = keys);

@@ -1,5 +1,5 @@
 const axios = require('axios');
-const keys = require('./config/keys');
+const keys = require('../config/keys');
 
 module.exports = {
     listAccounts: async () => {
