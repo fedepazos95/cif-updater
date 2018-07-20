@@ -15,7 +15,7 @@ const getBodyRecord = (categoryId, accountId, currencyId, amount) => {
 }
 
 module.exports = async function postRecord(categoryId, accountId, currencyId, amount) {
-    const browser = await puppeteer.launch({ headless: false, args: ['--no-sandbox', '--disable-setuid-sandbox'] });
+    const browser = await puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'] });
     const page = await browser.newPage();
     await page.setViewport({ width: 1920, height: 1080 })
     await page.goto('https://budgetbakersv30apiv1.docs.apiary.io/#reference/records/record-bulk-creation/create-new-record?console=1');
