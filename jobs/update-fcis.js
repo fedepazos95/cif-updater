@@ -13,7 +13,7 @@ const getFormattedValue = (cuotapartes, valor) => {
 
 const updateFcis = async () => {
     try {
-        const accounts = Wallet.listAccounts();
+        const accounts = await Wallet.listAccounts();
         _.each(accounts, ac => {
             const o = option[ac.name.replace(/ /g, "_")];
             if (o) {
