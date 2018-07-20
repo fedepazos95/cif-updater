@@ -21,8 +21,10 @@ const updateFcis = async () => {
                     const fciDb = await getFciFromDatabase(ac.name);
                     const balance = await Wallet.getAccountBalance(ac.id);
                     const newValue = getFormattedValue(fciDb.cuotapartes, r.valor);
+                    console.log('fcidb', fciDb, 'balance', balance, 'newValue', newValue);
                     if (balance !== newValue) {
-                        await postRecord(keys.categoryId, ac.id, keys.currencyId, (newValue - balance));
+                        console.log('son distintos');
+                        // await postRecord(keys.categoryId, ac.id, keys.currencyId, (newValue - balance));
                     }
                 });
             }
