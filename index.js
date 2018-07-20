@@ -12,6 +12,12 @@ const postRecord = require('./utils/postRecord');
 const pool = new Pool({ connectionString, ssl } = keys);
 const app = express();
 
+const getFormattedValue = (cuotapartes, valor) => {
+  let str = (cuotapartes * valor).toString();
+  let i = str.indexOf('.');
+  return str.substring(0, i + 3);
+}
+
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -35,12 +41,13 @@ app.get('/accounts', async (req, res) => {
   try {
     const accounts = await Wallet.listAccounts();
     _.each(accounts, ac => {
-      const o = option[ac.name.replace(/ /g,"_")];
+      const o = option[ac.name.replace(/ /g, "_")];
       if (o) {
         getLastVariation(o).then(async (r) => {
           const fciDb = await getFciFromDatabase(ac.name);
           const balance = await Wallet.getAccountBalance(ac.id);
-          console.log(fciDb, balance);
+          const newValue = getFormattedValue(fciDb.cuotapartes, fciDb.valor);
+          console.log(fciDb, balance, newValue);
         });
       }
     });
