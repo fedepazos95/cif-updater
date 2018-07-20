@@ -15,7 +15,7 @@ const app = express();
 const getFormattedValue = (cuotapartes, valor) => {
   let str = (cuotapartes * valor).toString();
   let i = str.indexOf('.');
-  return str.substring(0, i + 3);
+  return parseFloat(str.substring(0, i + 3));
 }
 
 app.use(express.static(path.join(__dirname, 'public')));
