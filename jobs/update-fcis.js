@@ -8,7 +8,7 @@ const postRecord = require('../utils/postRecord');
 const getFormattedValue = (cuotapartes, valor) => {
     let str = (cuotapartes * valor).toString();
     let i = str.indexOf('.');
-    return parseFloat(str.substring(0, i + 3));
+    return str.substring(0, i + 3);
 };
 
 const updateFcis = async () => {
@@ -22,12 +22,12 @@ const updateFcis = async () => {
                     const balance = await Wallet.getAccountBalance(ac.id);
                     const newValue = getFormattedValue(fciDb.cuotapartes, r.valor);
                     console.log('fcidb', fciDb, 'balance', balance, 'newValue', newValue);
-                    if (balance !== newValue) {
-                        console.log('son distintos');
-                        const am = newValue - balance;
-                        console.log('amount', am)
-                        await postRecord(keys.categoryId, ac.id, keys.currencyId, am);
-                    }
+                    const am = newValue - balance;
+                    console.log('amount', am)
+                    // if (balance !== newValue) {
+                    //     console.log('son distintos');
+                    //     await postRecord(keys.categoryId, ac.id, keys.currencyId, am);
+                    // }
                 });
             }
         });
