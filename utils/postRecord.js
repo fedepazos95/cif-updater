@@ -1,6 +1,7 @@
 const puppeteer = require('puppeteer');
 
 const getBodyRecord = (categoryId, accountId, currencyId, amount) => {
+    console.log('amount', amount);
     return `
     [
         {
@@ -15,6 +16,7 @@ const getBodyRecord = (categoryId, accountId, currencyId, amount) => {
 }
 
 module.exports = async function postRecord(categoryId, accountId, currencyId, amount) {
+    console.log('amoumt', amount);
     const browser = await puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'] });
     const page = await browser.newPage();
     await page.setViewport({ width: 1920, height: 1080 })
