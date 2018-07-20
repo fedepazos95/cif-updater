@@ -18,7 +18,7 @@ const updateFcis = async () => {
             const o = option[ac.name.replace(/ /g, "_")];
             if (o) {
                 getLastVariation(o).then(async (last) => {
-                    await updateFci(fciDb.fci, last);
+                    await updateFci(ac.name, last);
                     const fciDb = await getFciFromDatabase(ac.name);
                     const balance = await Wallet.getAccountBalance(ac.id);
                     const newValue = getFormattedValue(fciDb.cuotapartes, last.valor);
