@@ -24,7 +24,7 @@ const updateFcis = async () => {
                     console.log('fcidb', fciDb, 'balance', balance, 'newValue', newValue);
                     if (balance !== newValue) {
                         console.log('son distintos');
-                        // await postRecord(keys.categoryId, ac.id, keys.currencyId, (newValue - balance));
+                        await postRecord(keys.categoryId, ac.id, keys.currencyId, (newValue - balance));
                     }
                 });
             }
