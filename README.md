@@ -3,12 +3,13 @@
 [![NPM puppeteer package](https://img.shields.io/npm/v/puppeteer.svg)](https://npmjs.org/package/puppeteer)
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/esta/issues)
 
-Node.js app using [Express 4](http://expressjs.com/).
-The purpose of this app is to update CIFs (Common Investment Fund) daily's variation
+> The purpose of this app is to update CIFs (Common Investment Fund) daily's variation.
 
-This app uses [Puppeteer](https://github.com/GoogleChrome/puppeteer) to run a Chrome instance and automatically complete the form to enter a new record in the [BudgetBakers API](http://budgetbakers.com/api)
-
+This app uses [Puppeteer](https://github.com/GoogleChrome/puppeteer) to run a Chrome instance and automatically complete the form to enter a new record in the [BudgetBakers API](http://budgetbakers.com/api)  
 The app works with the [Heroku Scheduler](https://devcenter.heroku.com/articles/scheduler) but it was designed to allow adding an UI and making it scalable.
+
+## How it works?
+> Work in progress
 
 ## Authors
 
