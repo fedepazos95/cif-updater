@@ -26,4 +26,4 @@ module.exports = {
             console.error('Error', err);
         }
     }
-}
+};

@@ -1,39 +1,16 @@
-# node-js-getting-started
+# CIFs Updater
 
-A barebones Node.js app using [Express 4](http://expressjs.com/).
+Node.js app using [Express 4](http://expressjs.com/).
+The purpose of this app is to update CIFs (Common Investment Fund) daily's variation
 
-This application supports the [Getting Started with Node on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs) article - check it out.
+This app uses [Puppeteer](https://github.com/GoogleChrome/puppeteer) to run a Chrome instance and automatically complete the form to enter a new record in the [BudgetBakers API](http://budgetbakers.com/api)
 
-## Running Locally
+The app works with the [Heroku Scheduler](https://devcenter.heroku.com/articles/scheduler) but it was designed to allow adding an UI and making it scalable.
 
-Make sure you have [Node.js](http://nodejs.org/) and the [Heroku CLI](https://cli.heroku.com/) installed.
+## Authors
 
-```sh
-$ git clone git@github.com:heroku/node-js-getting-started.git # or clone your own fork
-$ cd node-js-getting-started
-$ npm install
-$ npm start
-```
+* **Federico Pazos** - [FedePazos95](https://github.com/fedepazos95)
 
-Your app should now be running on [localhost:5000](http://localhost:5000/).
+## License
 
-## Deploying to Heroku
-
-```
-$ heroku create
-$ git push heroku master
-$ heroku open
-```
-or
-
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
-
-## Documentation
-
-For more information about using Node.js on Heroku, see these Dev Center articles:
-
-- [Getting Started with Node.js on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs)
-- [Heroku Node.js Support](https://devcenter.heroku.com/articles/nodejs-support)
-- [Node.js on Heroku](https://devcenter.heroku.com/categories/nodejs)
-- [Best Practices for Node.js Development](https://devcenter.heroku.com/articles/node-best-practices)
-- [Using WebSockets on Heroku with Node.js](https://devcenter.heroku.com/articles/node-websockets)
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details

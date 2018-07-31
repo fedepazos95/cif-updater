@@ -12,7 +12,7 @@ const getBodyRecord = (categoryId, accountId, currencyId, amount) => {
             "recordState":"cleared"
         }
     ]`;
-}
+};
 
 module.exports = async function postRecord(categoryId, accountId, currencyId, amount) {
     const browser = await puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'] });
@@ -43,4 +43,4 @@ module.exports = async function postRecord(categoryId, accountId, currencyId, am
     // Waits the response to close
     await page.waitFor(5000);
     browser.close();
-}
+};

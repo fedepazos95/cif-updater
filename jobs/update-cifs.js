@@ -2,7 +2,7 @@ const _ = require('underscore');
 const keys = require('../config/keys');
 const { option } = require('../config/fcis');
 const Wallet = require('../utils/Wallet');
-const { getLastVariation, getFciFromDatabase, updateFci } = require('../utils/FcisUtils');
+const { getLastVariation, getCifFromDatabase, updateCif } = require('../utils/CifsUtils');
 const postRecord = require('../utils/postRecord');
 
 const getFormattedValue = (cuotapartes, valor) => {
@@ -11,17 +11,17 @@ const getFormattedValue = (cuotapartes, valor) => {
     return parseFloat(str.substring(0, i + 3));
 };
 
-const updateFcis = async () => {
+const updateCifs = async () => {
     try {
         const accounts = await Wallet.listAccounts();
         _.each(accounts, ac => {
             const o = option[ac.name.replace(/ /g, "_")];
             if (o) {
                 getLastVariation(o).then(async (last) => {
-                    await updateFci(ac.name, last);
-                    const fciDb = await getFciFromDatabase(ac.name);
+                    await updateCif(ac.name, last);
+                    const cifDb = await getCifFromDatabase(ac.name);
                     const balance = await Wallet.getAccountBalance(ac.id);
-                    const newValue = getFormattedValue(fciDb.cuotapartes, last.valor);
+                    const newValue = getFormattedValue(cifDb.cuotapartes, last.valor);
                     if (balance !== newValue) {
                         await postRecord(keys.categoryId, ac.id, keys.currencyId, (newValue - balance).toFixed(2));
                     }
@@ -33,4 +33,4 @@ const updateFcis = async () => {
     }
 };
 
-updateFcis();
+updateCifs();
