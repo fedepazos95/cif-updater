@@ -5,8 +5,10 @@
 
 > The purpose of this app is to update CIFs (Common Investment Fund) daily's variation.
 
-This app uses [Puppeteer](https://github.com/GoogleChrome/puppeteer) to run a Chrome instance and automatically complete the form to enter a new record in the [BudgetBakers API](http://budgetbakers.com/api)  
+It uses [Puppeteer](https://github.com/GoogleChrome/puppeteer) to run a Chrome instance and automatically complete the form to enter a new record in the [BudgetBakers API](http://budgetbakers.com/api).  
 The app works with the [Heroku Scheduler](https://devcenter.heroku.com/articles/scheduler) but it was designed to allow adding an UI and making it scalable.
+
+##### This app was developed using [node-js-getting-started](https://github.com/heroku/node-js-getting-started) from Heroku as scaffolding.
 
 ## How it works?
 > Work in progress
