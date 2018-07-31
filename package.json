@@ -8,7 +8,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "node test.js"
+    "test": "node test.js",
+    "lint": "node_modules/.bin/goodparts path/to/files/for/linting"
   },
   "dependencies": {
     "axios": "^0.18.0",
@@ -20,6 +21,7 @@
     "underscore": "^1.9.1"
   },
   "devDependencies": {
+    "goodparts": "^1.2.1",
     "request": "^2.81.0",
     "tape": "^4.7.0"
   },
